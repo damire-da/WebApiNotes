@@ -33,7 +33,7 @@ public class NoteController : ControllerBase
     {
         db.Note.Add(note);
         db.SaveChanges();
-        return new JsonResult(note);
+        return new JsonResult("Added successfully!");
     }
     
     [HttpPut]
@@ -42,7 +42,7 @@ public class NoteController : ControllerBase
     {
         db.Note.Update(note);
         db.SaveChanges();
-        return new JsonResult(note);
+        return new JsonResult("Update successfully!");
     }
     
     [HttpDelete("{id}")]
@@ -52,6 +52,6 @@ public class NoteController : ControllerBase
         var note = db.Note.FirstOrDefault(x => x.NoteId == id);
         db.Note.Remove(note);
         db.SaveChanges();
-        return new JsonResult(note);
+        return new JsonResult("Delete successfully!");
     }
 }
